@@ -217,8 +217,8 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(width, height) {
-   throw new Error('Not implemented');  
+function getRectangleString(/* width, height */) {
+  throw new Error('Not implemented');  
 }
 
 
@@ -243,10 +243,14 @@ function encodeToRot13(str) {
   const calph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const alph = 'abcdefghijklmnopqrstuvwxyz';
   let res = '';
-  for (let i = 0; i < str.length; i++) {
-    if (str[i] == ' ') res += ' ';
-    if (calph.indexOf(str[i]) !== -1) res += calph[calph.indexOf(str[i]) + 13 > calph.length ? (calph.indexOf(str[i]) + 13 - calph.length) : calph.indexOf(str[i]) + 13];
-    if (alph.indexOf(str[i]) !== -1) res += alph[alph.indexOf(str[i]) + 13 > alph.length ? (alph.indexOf(str[i]) + 13 - alph.length) : alph.indexOf(str[i]) + 13];
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === ' ') res += ' ';
+    if (calph.indexOf(str[i]) !== -1) { 
+      res += calph[calph.indexOf(str[i]) + 13 > calph.length ? (calph.indexOf(str[i]) + 13 - calph.length) : calph.indexOf(str[i]) + 13];
+    }
+    if (alph.indexOf(str[i]) !== -1) { 
+      res += alph[alph.indexOf(str[i]) + 13 > alph.length ? (alph.indexOf(str[i]) + 13 - alph.length) : alph.indexOf(str[i]) + 13];
+    }
   }
   return res;
 }

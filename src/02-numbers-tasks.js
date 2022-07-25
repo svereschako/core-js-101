@@ -212,8 +212,8 @@ function roundToPowerOfTen(/* num, pow */) {
  */
 function isPrime(n) {
   // throw new Error('Not implemented');
-  for (let i = 2; i < n; i++) {
-    if (n % i == 0) { return false; }
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) { return false; }
   }
   return n >= 2;
 }
@@ -235,7 +235,7 @@ function isPrime(n) {
  */
 function toNumber(value, def) {
   // throw new Error('Not implemented');
-  const number = new Number(value);
+  const number = Number(value);
   if (number) return number;
   return def;
 }

@@ -39,7 +39,7 @@ function findElement(arr, value) {
 function generateOdds(len) {
   // throw new Error('Not implemented');
   return Array.apply(null, Array(len)).map((x, i) => {
-    if (i % 2 == 0) return i + 1;
+    if (i % 2 === 0) return i + 1;
     return i;
   });
 }
@@ -231,7 +231,7 @@ function toCsvText(arr) {
  */
 function toArrayOfSquares(arr) {
   // throw new Error('Not implemented');
-  return arr.map((el) => Math.pow(el, 2));
+  return arr.map((el) => el*el);
 }
 
 

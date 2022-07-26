@@ -83,12 +83,27 @@ function isLeapYear(date) {
 function timeSpanToString(startDate, endDate) {
   // throw new Error('Not implemented');
   const date = new Date(endDate - startDate);
-  const h = date.getUTCHours();
-  const m = date.getUTCMinutes();
-  const s = date.getUTCSeconds();
-  const ms = date.getUTCMilliseconds();
-  return `${h == 0 ? '00' : (h < 10 ? `0${h}` : h)}:${m == 0 ? '00' : (m < 10 ? `0${m}` : m)}:${
-    s == 0 ? '00' : (s < 10 ? `0${s}` : s)}.${ms == 0 ? '000' : (ms < 10 ? `00${ms}` : (ms < 100 ? `0${ms}` : ms))}`;
+  let h = date.getUTCHours();
+  let m = date.getUTCMinutes();
+  let s = date.getUTCSeconds();
+  let ms = date.getUTCMilliseconds();
+  if (h === 0) {
+    h = '00';
+  }
+  if (m === 0) {
+    m = '00';
+  }
+  if (s === 0) {
+    s = '00';
+  }
+  if (ms === 0) {
+    ms = '000';
+  }
+  if (ms < 10) {
+    ms = `00${ms}`;
+  }
+  return `${h < 10 ? `0${h}` : h}:${m < 10 ? `0${m}` : m}:${
+    s < 10 ? `0${s}` : s}.${ms < 100 ? `0${ms}` : ms}`;
 }
 
 

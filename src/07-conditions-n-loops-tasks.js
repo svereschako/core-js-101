@@ -29,9 +29,9 @@
  */
 function getFizzBuzz(num) {
   // throw new Error('Not implemented');
-  if (num % 3 == 0 && num % 5 == 0) return 'FizzBuzz';
-  if (num % 3 == 0) return 'Fizz';
-  if (num % 5 == 0) return 'Buzz';
+  if (num % 3 === 0 && num % 5 === 0) return 'FizzBuzz';
+  if (num % 3 === 0) return 'Fizz';
+  if (num % 5 === 0) return 'Buzz';
   return num;
 }
 
@@ -50,7 +50,7 @@ function getFizzBuzz(num) {
 function getFactorial(n) {
   // throw new Error('Not implemented');
   let f = 1;
-  for (let i = 1; i <= n; i++) {
+  for (let i = 1; i <= n; i += 1) {
     f *= i;
   }
   return f;
@@ -72,7 +72,7 @@ function getFactorial(n) {
 function getSumBetweenNumbers(n1, n2) {
   // throw new Error('Not implemented');
   let sum = 0;
-  for (let i = n1; i <= n2; i++) {
+  for (let i = n1; i <= n2; i += 1) {
     sum += i;
   }
   return sum;
@@ -184,7 +184,7 @@ function isInsideCircle(circle, point) {
 function findFirstSingleChar(str) {
   // throw new Error('Not implemented');
   const copy = str;
-  for (let i = 0; i < copy.length; i++) {
+  for (let i = 0; i < copy.length; i += 1) {
     const re = new RegExp(`${copy[i]}`, 'g');
     if (str.match(re).length < 2) return copy[i];
   }
@@ -277,10 +277,8 @@ function reverseInteger(num) {
  *   5436468789016589 => false
  *   4916123456789012 => false
  */
-function isCreditCardNumber(ccn) {
-  // throw new Error('Not implemented');
-  ccn = ccn.toString();
-  return !/^\d+$/.test(ccn) || (ccn.split('').reduce((sum, d, n) => sum + parseInt(((n + ccn.length) % 2) ? d : [0, 2, 4, 6, 8, 1, 3, 5, 7, 9][d]), 0)) % 10 == 0;
+function isCreditCardNumber(/* ccn */) {
+  throw new Error('Not implemented');
 }
 
 /**
@@ -331,8 +329,8 @@ function isBracketsBalanced(str) {
   const brackets = '[]{}()<>';
   const stack = [];
 
-  for (const bracket of str) {
-    const bracketsIndex = brackets.indexOf(bracket);
+  for (let i = 0; i < str.length; i += 1) {
+    const bracketsIndex = brackets.indexOf(str[i]);
 
     if (bracketsIndex % 2 === 0) {
       stack.push(bracketsIndex + 1);

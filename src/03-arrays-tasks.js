@@ -245,7 +245,7 @@ function toArrayOfSquares(arr) {
  *   [ 0, 0, 0, 0, 0]         => [ 0, 0, 0, 0, 0]
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
-function getMovingSum(arr) {
+/* function getMovingSum(arr) {
   // throw new Error('Not implemented');
   const res = [];
   let sum = 0;
@@ -254,8 +254,16 @@ function getMovingSum(arr) {
     sum += el;
   });
   return res;
-}
+} */
 
+function getMovingSum(arr) {
+  // throw new Error('Not implemented');
+  let s = 0;
+  return arr.map((el) => {
+    s += el;
+    return s;
+  });
+}
 /**
  * Returns every second item from the specified array:
  *
@@ -325,15 +333,20 @@ function get3TopItems(arr) {
  *   [ null, 1, 'elephant' ] => 1
  *   [ 1, '2' ] => 1
  */
-function getPositivesCount(arr) {
+/* function getPositivesCount(arr) {
   // throw new Error('Not implemented');
   let count = 0;
   arr.forEach((el) => {
     if (typeof el === 'number' && el > 0) count += 1;
   });
   return count;
-}
+} */
 
+function getPositivesCount(arr) {
+  // throw new Error('Not implemented');
+  const c = arr.filter((el) => typeof el === 'number' && el > 0);
+  return c.length;
+}
 /**
  * Sorts digit names
  *
@@ -422,11 +435,8 @@ function getFalsyValuesCount(arr) {
  */
 function findAllOccurrences(arr, item) {
   // throw new Error('Not implemented');
-  let count = 0;
-  arr.forEach((el) => {
-    if (el === item) count += 1;
-  });
-  return count;
+  const c = arr.filter((el) => el === item);
+  return c.length;
 }
 
 /**

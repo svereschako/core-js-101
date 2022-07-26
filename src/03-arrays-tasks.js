@@ -185,7 +185,7 @@ function getHead(arr, n) {
  */
 function getTail(arr, n) {
   // throw new Error('Not implemented');
-  return arr.splice(-1, n);
+  return arr.splice(arr.length - n, n);
 }
 
 
@@ -308,7 +308,7 @@ function propagateItemsByPositionIndex(arr) {
  */
 function get3TopItems(arr) {
   // throw new Error('Not implemented');
-  arr.sort((a, b) => b - a).splice(0, 3);
+  return arr.sort((a, b) => b - a).splice(0, 3);
 }
 
 
@@ -384,6 +384,7 @@ function sortDigitNamesByNumericOrder(arr) {
  */
 function getItemsSum(arr) {
   // throw new Error('Not implemented');
+  if (arr.length === 0) return 0;
   return arr.reduce((a, b) => a + b);
 }
 

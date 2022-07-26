@@ -55,7 +55,10 @@ function getCircleCircumference(radius) {
  */
 function getAverage(value1, value2) {
   // throw new Error('Not implemented');
-  return (value1 + value2) / 2;
+  const res = (value1 + value2) / 2;
+  if (res === Infinity) return Number.MAX_VALUE;
+  if (res === -Infinity) return Number.MIN_VALUE;
+  return res;
 }
 
 /**
@@ -75,7 +78,7 @@ function getAverage(value1, value2) {
  */
 function getDistanceBetweenPoints(x1, y1, x2, y2) {
   // throw new Error('Not implemented');
-  return (x2 - x1) * 2 + (y2 - y1) * 2;
+  return Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
 }
 
 /**
@@ -116,7 +119,7 @@ function getLinearEquationRoot(a, b) {
  */
 function getAngleBetweenVectors(x1, y1, x2, y2) {
   // throw new Error('Not implemented');
-  return Math.atan2(y2 - y1, x2 - x1) * (180 / Math.PI);
+  return Math.atan2(y2 - y1, x2 - x1) * (Math.PI / 180);
 }
 
 /**

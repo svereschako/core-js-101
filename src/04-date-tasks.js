@@ -89,21 +89,19 @@ function timeSpanToString(startDate, endDate) {
   let ms = date.getUTCMilliseconds();
   if (h === 0) {
     h = '00';
-  }
+  } else if (h < 10) h = `0${h}`;
   if (m === 0) {
     m = '00';
-  }
+  } else if (m < 10) m = `0${m}`;
   if (s === 0) {
     s = '00';
-  }
+  } else if (s < 10) s = `0${s}`;
   if (ms === 0) {
     ms = '000';
-  }
-  if (ms < 10) {
+  } else if (ms < 10) {
     ms = `00${ms}`;
-  }
-  return `${h < 10 ? `0${h}` : h}:${m < 10 ? `0${m}` : m}:${
-    s < 10 ? `0${s}` : s}.${ms < 100 ? `0${ms}` : ms}`;
+  } else if (ms < 100) ms = `0${ms}`;
+  return `${h}:${m}:${s}.${ms}`;
 }
 
 

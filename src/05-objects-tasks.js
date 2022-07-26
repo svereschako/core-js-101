@@ -24,7 +24,7 @@ function Rectangle(width, height) {
   // throw new Error('Not implemented');
   this.width = width;
   this.height = height;
-  this.getArea = function () {
+  this.getArea = function m() {
     return this.width * this.height;
   };
 }
